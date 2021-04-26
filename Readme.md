@@ -1,6 +1,7 @@
 run `npm install` to install the project dependencies
 
 #### Setting up the PostgreSQL database
+
 Install the following PostgreSQL environments.
 
 - [PostgreSQL](https://www.postgresql.org/download/)an opensource relational databse management system.
@@ -8,7 +9,7 @@ Install the following PostgreSQL environments.
 
 Once installed and well configured, create a database and a table to work with.
 
-- Create a database, `my_todos_db`.
+- Create a database, `test`.
 
 ```SQL
 CREATE DATABASE test
