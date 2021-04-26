@@ -1,0 +1,27 @@
+{
+  "name": "nodejs-express-api-crud-",
+  "version": "1.0.0",
+  "description": "Test",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FAHID-KHAN/NodeJs-Express-API-CRUD-.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FAHID-KHAN/NodeJs-Express-API-CRUD-/issues"
+  },
+  "homepage": "https://github.com/FAHID-KHAN/NodeJs-Express-API-CRUD-#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "pg": "^8.6.0",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^6.6.2"
+  }
+}
