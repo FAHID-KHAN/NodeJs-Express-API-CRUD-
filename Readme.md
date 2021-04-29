@@ -32,6 +32,6 @@ CREATE TABLE todos (
 npm run dev
 ```
 
-- In a browser, visit `http://localhost/4000`;
+- In a browser, visit `http://localhost:4000`;
 
 - Interact with the application.
