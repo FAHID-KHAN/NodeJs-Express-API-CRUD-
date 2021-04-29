@@ -1,5 +1,7 @@
 const db = require('../config/db');
 
+const fp = db.Sequelize.fp;
+
 class Todo {
 
     //get all todos.
