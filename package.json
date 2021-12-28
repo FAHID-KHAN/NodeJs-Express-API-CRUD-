@@ -1,19 +1,22 @@
 {
-  "name": "Nodejs-Express-Api-CRUD",
+  "name": "todo",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Api for todo with sequelize and postgres",
+  "main": "app.js",
   "scripts": {
-    "dev": "nodemon ./src/index.js"
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.19.1",
     "cors": "^2.8.5",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
     "pg": "^8.5.1",
+    "pg-hstore": "^2.3.4",
     "sequelize": "^6.6.2"
   },
   "devDependencies": {
