@@ -1,51 +1,28 @@
-const express = require("express");
+module.exports = app => {
+  const todos = require("../controllers/COntrolTodo.js");
 
-const router = express.Router();
+  var router = require("express").Router();
 
-const Todo = require("../controllers/Todo");
+  // Create new todo
+  router.post("/", todos.create);
 
-//Get all todos.
-router.get("/", async (req, res) => {
-  let todos = await new Todo().getTodos();
+  // Get all todos
+  router.get("/", todos.findAll);
 
-  return res.render("home", {
-    todos
-  });
-});
+  // Get all published todos
+  router.get("/published", todos.findAllPublished);
 
-//Create a todo.
-router.post("/todo", async (req, res) => {
-  let { title } = req.body;
+  // Get a single todo with id
+  router.get("/:id", todos.findOne);
 
-  await new Todo().createTodo({ title }, res);
+  // Update a todo with id
+  router.put("/:id", todos.update);
 
-  return res.redirect("/");
-});
+  // Delete a todo with id
+  router.delete("/:id", todos.delete);
 
-//Update a todo.
-router.put("/todos/:todoId", async (req, res) => {
-  let { todoId } = req.params;
+  // Delete all todos
+  router.delete("/", todos.deleteAll);
 
-  await new Todo().updateTodo(todoId, res);
-
-  let todos = await new Todo().getTodos();
-
-  return res.render("home", {
-    todos
-  });
-});
-
-//Delete a todo.
-router.delete("/todos/:todoId", async (req, res) => {
-  let { todoId } = req.params;
-
-  await new Todo().deleteTodo(todoId);
-
-  let todos = await new Todo().getTodos();
-
-  return res.render("home", {
-    todos
-  });
-});
-
-module.exports = router;
+  app.use('/api/todos', router);
+};
