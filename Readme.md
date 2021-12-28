@@ -1,37 +1,19 @@
 run `npm install` to install the project dependencies
 
-#### Setting up the PostgreSQL database
-
-Install the following PostgreSQL environments.
-
-- [PostgreSQL](https://www.postgresql.org/download/)an opensource relational databse management system.
-- [pgAdmin](https://www.pgadmin.org/download/), standalone destop application for managing PostgreSQL databases.
-
-Once installed and well configured, create a database and a table to work with.
-
-- Create a database, `test`.
-
-```SQL
-CREATE DATABASE test
-```
-
-- Create a table, `todos`.
-
-```SQL
-CREATE TABLE todos (
-  id SERIAL PRIMARY KEY,
-  title VARCHAR(100) NOT NULL,
-  checked  Boolean NOT NULL)
-```
-
 ### Running the application
 
 - Start the development server by Running:
 
 ```bash
-npm run dev
+node app.js
+for updating through bash use nodemon app.js 
 ```
 
-- In a browser, visit `http://localhost:4000`;
+- In a browser, visit `http://localhost:8080`;
 
-- Interact with the application.
+- Interact with the application. and also use postman for better understanding
+
+- updated todos with sequelize orm and required methods 
+- reformatted the code for better understanding 
+- Deleted unnecessary html file 
+- just a simple api 
