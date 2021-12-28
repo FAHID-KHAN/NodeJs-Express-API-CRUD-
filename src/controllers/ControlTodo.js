@@ -147,7 +147,7 @@ exports.findAllPublished = (req, res) => {
 
     Todo.findAll({ where: { published: true } })
     .then(data => {
-      res.send(data);
+      req.send(data);
     })
     .catch(err => {
       res.status(500).send({
