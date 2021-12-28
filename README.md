@@ -1,7 +1,8 @@
 run `npm install` to install the project dependencies
 
 ### Running the application
-
+- cd into src folder in bash 
+- cd src
 - Start the development server by Running:
 
 ```bash
