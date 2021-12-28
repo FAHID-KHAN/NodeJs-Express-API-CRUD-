@@ -1,5 +1,5 @@
 const db = require('../models');
-const todo = db.todo;
+const Todo = db.todo;
 const Op= db.Sequelize.Op;
 
 // Create and Save a new Todo
@@ -13,7 +13,7 @@ exports.create = (req, res) => {
     return;
   }
 
-  // Create a todo
+  // Create a Todo
   const todo = {
     title: req.body.title,
     description: req.body.description,
@@ -21,14 +21,14 @@ exports.create = (req, res) => {
   };
 
   // Save Todo in the database
-  todo.create(todo)
+  Todo.create(todo)
     .then(data => {
       res.send(data);
     })
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while creating the Tutorial."
+          err.message || "Some error occurred while creating the Todo."
       });
     });
   
@@ -39,14 +39,14 @@ exports.findAll = (req, res) => {
     const title = req.query.title;
   var condition = title ? { title: { [Op.like]: `%${title}%` } } : null;
 
-  todo.findAll({ where: condition })
+  Todo.findAll({ where: condition })
     .then(data => {
       res.send(data);
     })
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while retrieving tutorials."
+          err.message || "Error occurred while retrieving todos."
       });
     });
   
@@ -57,13 +57,13 @@ exports.findOne = (req, res) => {
 
     const id = req.params.id;
 
-  todo.findByPk(id)
+  Todo.findByPk(id)
     .then(data => {
       res.send(data);
     })
     .catch(err => {
       res.status(500).send({
-        message: "Error retrieving Tutorial with id=" + id
+        message: "Error retrieving Todo with id=" + id
       });
     });
   
@@ -74,7 +74,7 @@ exports.update = (req, res) => {
 
     const id = req.params.id;
 
-    todo.update(req.body, {
+    Todo.update(req.body, {
       where: { id: id }
     })
       .then(num => {
@@ -90,7 +90,7 @@ exports.update = (req, res) => {
       })
       .catch(err => {
         res.status(500).send({
-          message: "Error updating todo with id=" + id
+          message: "Error updating Todo with id=" + id
         });
       });
   
@@ -101,7 +101,7 @@ exports.delete = (req, res) => {
 
     const id = req.params.id;
 
-  todo.destroy({
+  Todo.destroy({
     where: { id: id }
   })
     .then(num => {
@@ -126,7 +126,7 @@ exports.delete = (req, res) => {
 // Delete all Todo from the database.
 exports.deleteAll = (req, res) => {
 
-    todo.destroy({
+    Todo.destroy({
         where: {},
         truncate: false
       })
@@ -145,7 +145,7 @@ exports.deleteAll = (req, res) => {
 // Find all published Todo
 exports.findAllPublished = (req, res) => {
 
-    todo.findAll({ where: { published: true } })
+    Todo.findAll({ where: { published: true } })
     .then(data => {
       res.send(data);
     })
