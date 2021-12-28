@@ -23,7 +23,8 @@ class Todo {
         return;        
     };
 
-    //update a todo.
+    
+    //Update a Todo
     async updateTodo(todoId){
 
         //get the previous todo.
